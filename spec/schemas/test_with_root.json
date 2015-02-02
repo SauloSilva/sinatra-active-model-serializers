@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required":  [
+    "test"
+  ],
+  "properties": {
+    "test": {
+      "type": "object",
+      "required":  [
+        "foo",
+        "bar"
+      ],
+      "properties": {
+        "foo": { "type": "string" },
+        "bar": { "type": "string" }
+      }
+    }
+  }
+}
