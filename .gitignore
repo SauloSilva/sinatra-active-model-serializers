@@ -1,2 +1,3 @@
 Gemfile.lock
-spec/app/sinatra_active_model_serializers.sqlite3
+sinatra_active_model_serializers.sqlite3
+db/schema.rb
