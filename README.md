@@ -2,7 +2,7 @@
 
 # Sinatra::ActiveModelSerializers
 
-This gem has the function of adapt the activate serializer model to work in Sinatra from a more practical way with yours models.
+This gem has the function of adapt the active model serializers to work in Sinatra from a more practical way with models.
 If do you use everything at the default, just  require `sinatra_active_model_serializers` for serializers work correctly the a json response.
 
 ## Requirements
