@@ -2,13 +2,14 @@ require 'rubygems'
 require 'bundler'
 Bundler.require(:test)
 
-Dir['./lib/sinatra_active_model_serializers/**/*.rb'].flatten.sort.each { |file| require file}
+require './lib/sinatra_active_model_serializers/'
 Dir['./spec/app/models/**/*.rb'].flatten.sort.each { |file| require file}
-Dir['./spec/app/serializers/**/*.rb'].flatten.sort.each { |file| require file }
 
 module App
   class Base < Sinatra::Base
     register Sinatra::ActiveRecordExtension
+
+    set :serializers_path, './spec/app/serializers'
 
     configure :test do
       ActiveRecord::Base.logger = nil
@@ -16,7 +17,7 @@ module App
 
     set :database, {
       adapter: 'sqlite3',
-      database: 'sinatra_active_model_serializers.sqlite3'
+      database: 'db/sinatra_active_model_serializers.sqlite3'
     }
 
     get '/with-root/' do
