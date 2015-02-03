@@ -2,6 +2,8 @@
 
 # Sinatra::ActiveModelSerializers
 
+[![Gem Version](https://badge.fury.io/rb/sinatra-active-model-serializers@2x.png)](http://badge.fury.io/rb/sinatra-active-model-serializers)
+
 This gem has the function of adapt the Active Model Serializers to work in Sinatra from a more practical way with models.
 If do you use everything at the default, just  require `sinatra_active_model_serializers` for serializers work correctly the a json response.
 
