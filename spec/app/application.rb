@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler'
-Bundler.require(:test)
+Bundler.require(:defaut, :test)
 
 require './lib/sinatra_active_model_serializers/'
 Dir['./spec/app/models/**/*.rb'].flatten.sort.each { |file| require file}
