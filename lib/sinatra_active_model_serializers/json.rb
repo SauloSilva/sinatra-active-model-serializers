@@ -20,6 +20,7 @@ module Sinatra
     end
 
     def files_required
+      return unless settings.serializers_path
       Dir["#{ settings.serializers_path }/**/*.rb"].flatten.sort.each do |file|
         require file
       end
