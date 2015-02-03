@@ -6,9 +6,11 @@ require File.expand_path('../lib/sinatra_active_model_serializers/version', __FI
 Gem::Specification.new do |s|
   s.name        = 'sinatra-active-model-serializers'
   s.version     = SinatraActiveModelSerializers::VERSION
-  s.description = 'Adapter from an activate model serializer, to work in Sinatra from a more practical way with models'
+  s.description = 'Adapter from Active Model Serializers, to work in Sinatra from a more practical way with models'
   s.homepage    = 'https://github.com/SauloSilva/sinatra-active-model-serializers'
-  s.summary     = s.description
+  s.summary     = 'Adapter from Active Model Serializers'
+
+  s.license = 'MIT'
 
   # generated from git shortlog -sn
   s.authors = ['saulosantiago']
@@ -39,5 +41,5 @@ Gem::Specification.new do |s|
     'spec/support/request_support.rb'
   ]
 
-  s.add_dependency 'active_model_serializers', '~> 0.9.3'
+  s.add_runtime_dependency 'active_model_serializers', '0.9.3'
 end

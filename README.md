@@ -2,7 +2,7 @@
 
 # Sinatra::ActiveModelSerializers
 
-This gem has the function of adapt the active model serializers to work in Sinatra from a more practical way with models.
+This gem has the function of adapt the Active Model Serializers to work in Sinatra from a more practical way with models.
 If do you use everything at the default, just  require `sinatra_active_model_serializers` for serializers work correctly the a json response.
 
 ## Requirements
@@ -45,7 +45,7 @@ end
 
 **active_model_serializers**
 
-This attribute is an object, all inserted configuration this object it will be passed on to active model serializers, eg.
+This attribute is an object, all inserted configuration this object it will be passed on to Active Model Serializers, eg.
 
 ```
 set :active_model_serializers, { root: false }
@@ -62,7 +62,7 @@ set :serializers_path, './whatever_path/serializers'
 **json**
 
 When you return a json, you can send a the second parameter.
-This the second parameter is an object. This object may contain new configurations to assign to the active model serializers or to rewrite any already set by default, eg.
+This the second parameter is an object. This object may contain new configurations to assign to the Active Model Serializers or to rewrite any already set by default, eg.
 
 ```
 get '/' do
