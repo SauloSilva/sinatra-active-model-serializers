@@ -53,10 +53,16 @@ set :active_model_serializers, { root: false }
 
 **serializers_path**
 
-By default this attribute is set up to look for the serializers from your project in "* app / serializers *". Whether you have a different environment you can set up by inserting the path of the string type, eg.
+By default this attribute is set up to look for the serializers from your project in "* app / serializers *". Whether you have a different environment you can set up by inserting the path of the string, eg.
 
 ```
 set :serializers_path, './whatever_path/serializers'
+```
+
+or not to automatically requires
+
+```
+set :serializers_path, false
 ```
 
 **json**
