@@ -1,3 +1,5 @@
+[ ![Codeship Status for SauloSilva/sinatra-active-model-serializers](https://codeship.com/projects/0be149a0-8d56-0132-3f2c-5691319bff63/status?branch=master)](https://codeship.com/projects/60665)
+
 # Sinatra::ActiveModelSerializers
 
 This gem has the function of adapt the activate serializer model to work in Sinatra from a more practical way with yours models.
