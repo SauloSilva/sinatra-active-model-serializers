@@ -1,6 +1,10 @@
 source 'http://rubygems.org'
 gemspec
 
+group :development do
+  gem 'rubygems-tasks', '0.2.4'
+end
+
 group :test do
   gem 'sinatra', '1.4.5'
   gem 'sinatra-contrib', '1.4.2'
