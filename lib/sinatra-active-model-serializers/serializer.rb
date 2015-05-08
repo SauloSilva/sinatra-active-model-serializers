@@ -1,7 +1,7 @@
 module Sinatra
-  module ActiveModelSerializer
+  module ActiveModelSerializers
     def json(object, options={})
-      options = options.merge(settings.active_model_serializers)
+      options = options.merge(settings.active_model_serializers_options)
 
       serializer = ActiveModel::Serializer.serializer_for(object, options)
 
@@ -13,21 +13,19 @@ module Sinatra
     end
 
     def self.files_required(app)
-      return unless app.settings.serializers_path
-      Dir["#{ app.settings.serializers_path }/**/*.rb"].flatten.sort.each do |file|
+      return unless app.settings.active_model_serializers_path
+      Dir["#{ app.settings.active_model_serializers_path }/**/*.rb"].flatten.sort.each do |file|
         require file
       end
     end
 
     def self.registered(app)
       app.extend Sinatra
-      app.helpers ActiveModelSerializer
-
-      #Default values
-      app.set :serializers_path, './app/serializers'
-      app.set :active_model_serializers, { root: false }
-
+      app.helpers ActiveModelSerializers
       files_required(app)
     end
   end
+
+  Base.set :active_model_serializers_options, { root: false }
+  Base.set :active_model_serializers_path, false
 end
