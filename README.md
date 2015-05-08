@@ -34,7 +34,8 @@ After is simply do require from our library on your `application.rb`, eg.
 
 ```ruby
 require 'rubygems'
-require 'sinatra-active-model-serializers'
+require 'bundler'
+Bundler.require :default
 
 class App < Sinatra::Base
   get '/' do
