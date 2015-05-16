@@ -27,6 +27,13 @@ module App
     get '/without-root/' do
       json Test.create(foo: 'bar'), { root: false }
     end
+
+    get '/with-specific-serializer/' do
+      json Test.create(foo: 'bar'), {
+        root: false,
+        serializer: FooSerializer
+      }
+    end
   end
 end
 

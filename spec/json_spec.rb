@@ -10,4 +10,9 @@ describe App::Base do
     get '/without-root/'
     match_response_schema(:test_without_root)
   end
+
+  it 'should response with specific serializer' do
+    get '/with-specific-serializer/'
+    match_response_schema(:test_with_specific_serializer)
+  end
 end
