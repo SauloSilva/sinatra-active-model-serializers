@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
     'db/migrate/00_create_tests.rb',
     'db/schema.rb',
     'lib/sinatra-active-model-serializers.rb',
-    'lib/sinatra-active-model-serializers/json.rb',
+    'lib/sinatra-active-model-serializers/serializer.rb',
     'lib/sinatra-active-model-serializers/version.rb',
     'sinatra-active-model-serializers.gemspec',
     'spec/app/application.rb',
@@ -41,5 +41,6 @@ Gem::Specification.new do |s|
     'spec/support/request_support.rb'
   ]
 
+  s.add_runtime_dependency 'sinatra', '~>1.4'
   s.add_runtime_dependency 'active_model_serializers', '0.9.3'
 end

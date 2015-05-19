@@ -38,6 +38,8 @@ require 'bundler'
 Bundler.require :default
 
 class App < Sinatra::Base
+  register Sinatra::ActiveModelSerializers
+
   get '/' do
     json Test.first
   end
@@ -46,12 +48,12 @@ end
 
 ## Options
 
-**active_model_serializers**
+**active_model_serializers_options**
 
-This attribute is an object, all inserted configuration this object it will be passed on to Active Model Serializers, eg.
+This attribute is an object and all options that you need, can be passed through it to Active Model Serializers, ex.
 
 ```
-set :active_model_serializers, { root: false }
+set :active_model_serializers_options, { root: false }
 ```
 
 **serializers_path**
@@ -59,7 +61,7 @@ set :active_model_serializers, { root: false }
 By default this attribute is set up to look for the serializers from your project in "* app / serializers *". Whether you have a different environment you can set up by inserting the path of the string, eg.
 
 ```
-set :serializers_path, './whatever_path/serializers'
+set :active_model_serializers_path, './whatever_path/serializers'
 ```
 
 or not to automatically requires
