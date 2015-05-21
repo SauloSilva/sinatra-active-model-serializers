@@ -44,9 +44,9 @@ class App < Sinatra::Base
 end
 ```
 
-## Options
+## Sets
 
-**active_model_serializers**
+#### active_model_serializers
 
 This attribute is an object, all inserted configuration this object it will be passed on to Active Model Serializers, eg.
 
@@ -54,7 +54,7 @@ This attribute is an object, all inserted configuration this object it will be p
 set :active_model_serializers, { root: false }
 ```
 
-**serializers_path**
+#### serializers_path
 
 By default this attribute is set up to look for the serializers from your project in "* app / serializers *". Whether you have a different environment you can set up by inserting the path of the string, eg.
 
@@ -68,10 +68,12 @@ or not to automatically requires
 set :serializers_path, false
 ```
 
-**json**
+## Response JSON
 
 When you return a json, you can send a the second parameter.
 This the second parameter is an object. This object may contain new configurations to assign to the Active Model Serializers or to rewrite any already set by default, eg.
+
+#### root
 
 ```
 get '/' do
@@ -79,12 +81,22 @@ get '/' do
 end
 ```
 
-or
+#### scope
 
 ```
 get '/' do
   json Resource.first, { scope: self }
 end
+```
+
+#### serializer
+
+If you wish to use an another serializer than the default, you can explicitly pass it through the renderer
+
+1. For a resource:
+
+```ruby
+json Resource.first, { serializer: ResourcePreviewSerializer }
 ```
 
 ## License

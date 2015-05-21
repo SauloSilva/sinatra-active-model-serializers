@@ -10,9 +10,7 @@ module Sinatra
     def json(object, options={})
       options = options.merge(settings.active_model_serializers)
 
-      serializer = ActiveModel::Serializer.serializer_for(object, options)
-
-      if serializer
+      if serializer = options.fetch(:serializer, ActiveModel::Serializer.serializer_for(object, options))
         serializer.new(object, options).to_json
       else
         object.to_json(options)
