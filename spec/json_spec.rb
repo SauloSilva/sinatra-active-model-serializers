@@ -15,4 +15,10 @@ describe App::Base do
     get '/with-specific-serializer/'
     match_response_schema(:test_with_specific_serializer)
   end
+
+  it 'should response with each serializer' do
+    get '/with-each-serializer/'
+
+    p last_response.body
+  end
 end
