@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required":  [
+    "units"
+  ],
+  "properties": {
+    "units": {
+      "type": "array",
+      "items": {
+        "type" : "object",
+        "required":  [
+          "foo",
+          "extra"
+        ],
+        "properties" : {
+          "foo" : { "type" : "string" },
+          "extra" : { "type" : "string" }
+        }
+      }
+    }
+  }
+}

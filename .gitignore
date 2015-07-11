@@ -2,3 +2,4 @@ Gemfile.lock
 db/sinatra_active_model_serializers.sqlite3
 db/schema.rb
 pkg
+coverage

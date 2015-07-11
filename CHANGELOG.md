@@ -1,5 +1,10 @@
 ## [In git](https://github.com/SauloSilva/sinatra-active-model-serializers/compare/v0.0.2...HEAD)
 
+## [v0.2.0](https://github.com/SauloSilva/sinatra-active-model-serializers/tree/v0.2.0)
+
+### Features:
+* [Adding each serializer](https://github.com/SauloSilva/sinatra-active-model-serializers/pull/15) (saulosantiago)
+
 ## [v0.1.0](https://github.com/SauloSilva/sinatra-active-model-serializers/tree/v0.1.0)
 
 ### Features:
