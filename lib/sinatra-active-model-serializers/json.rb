@@ -7,14 +7,25 @@ module Sinatra
       super
     end
 
-    def json(object, options={})
-      options = options.merge(settings.active_model_serializers)
+    def json(resource, options={})
+      @_options = settings.active_model_serializers.merge(options)
 
-      if serializer = options.fetch(:serializer, ActiveModel::Serializer.serializer_for(object, options))
-        serializer.new(object, options).to_json
+      if serializer = get_serializer(resource)
+        serializer.new(resource, @_options).to_json
       else
-        object.to_json(options)
+        resource.to_json(@_options)
       end
+    end
+
+    def get_serializer(resource)
+      _serializer ||= @_options.delete(:serializer)
+      _serializer ||= ActiveModel::Serializer.serializer_for(resource)
+
+      if @_options.key?(:each_serializer)
+        @_options[:serializer] = @_options.fetch(:each_serializer)
+      end
+
+      _serializer
     end
 
     def files_required
@@ -25,6 +36,6 @@ module Sinatra
     end
   end
 
-  Base.set :active_model_serializers, {}
+  Base.set :active_model_serializers, { root: true }
   Base.set :serializers_path, SERIALIZERS_DEFAULT_PATH
 end

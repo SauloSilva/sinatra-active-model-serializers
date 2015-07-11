@@ -34,6 +34,16 @@ module App
         serializer: FooSerializer
       }
     end
+
+    get '/with-each-serializer/' do
+      Test.create(foo: 'bar1')
+      Test.create(foo: 'bar2')
+
+      json Test.all, {
+        root: 'units',
+        each_serializer: UnitarySerializer
+      }
+    end
   end
 end
 
