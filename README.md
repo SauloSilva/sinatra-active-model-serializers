@@ -1,5 +1,7 @@
 [ ![Codeship Status for SauloSilva/sinatra-active-model-serializers](https://codeship.com/projects/0be149a0-8d56-0132-3f2c-5691319bff63/status?branch=master)](https://codeship.com/projects/60665)
 
+[![Coverage Status](https://coveralls.io/repos/SauloSilva/sinatra-active-model-serializers/badge.svg?branch=adding_each_serializer&service=github)](https://coveralls.io/github/SauloSilva/sinatra-active-model-serializers?branch=adding_each_serializer)
+
 # Sinatra::ActiveModelSerializers
 
 [![Gem Version](https://badge.fury.io/rb/sinatra-active-model-serializers.png)](http://badge.fury.io/rb/sinatra-active-model-serializers)
@@ -89,7 +91,7 @@ get '/' do
 end
 ```
 
-#### serializer
+## Specify a serializer
 
 If you wish to use an another serializer than the default, you can explicitly pass it through the renderer
 
@@ -97,6 +99,15 @@ If you wish to use an another serializer than the default, you can explicitly pa
 
 ```ruby
 json Resource.first, { serializer: ResourcePreviewSerializer }
+```
+
+2. For an array resource:
+
+Use the default `ArraySerializer`, which will use `each_serializer` to
+serialize each element.
+
+```ruby
+json @resources, { each_serializer: ResourcePreviewSerializer }
 ```
 
 ## License

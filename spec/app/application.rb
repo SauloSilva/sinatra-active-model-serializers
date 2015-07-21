@@ -21,18 +21,21 @@ module App
     }
 
     get '/with-root/' do
-      json Test.create(foo: 'bar'), { root: true }
+      json Test.create(foo: 'bar'), root: true
     end
 
     get '/without-root/' do
-      json Test.create(foo: 'bar'), { root: false }
+      json Test.create(foo: 'bar'), root: false
     end
 
     get '/with-specific-serializer/' do
-      json Test.create(foo: 'bar'), {
-        root: false,
-        serializer: FooSerializer
-      }
+      json Test.create(foo: 'bar'), root: false, serializer: FooSerializer
+    end
+
+    get '/with-each-serializer/' do
+      Test.create(foo: 'bar1')
+      Test.create(foo: 'bar2')
+      json Test.all, root: 'units', each_serializer: UnitarySerializer
     end
   end
 end

@@ -5,6 +5,9 @@ require 'sinatra/contrib'
 require 'app/application'
 require 'rspec'
 require 'rack/test'
+require 'coveralls'
+
+Coveralls.wear!
 Dir[File.expand_path '../support/**/*.rb',  __FILE__].each { |file| require file }
 
 RSpec.configure do |config|
