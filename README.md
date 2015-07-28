@@ -21,11 +21,11 @@ or with bundler
 
 ```
 # Gemfile
-source :rubygems
+source 'http://rubygems.org'
 
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'sinatra-active-record'
+gem 'sinatra', '1.4.6'
+gem 'sinatra-contrib', '1.4.6'
+gem 'sinatra-active-record', '2.0.4'
 gem 'sinatra-active-model-serializers'
 ```
 
