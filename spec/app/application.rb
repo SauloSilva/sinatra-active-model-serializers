@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler'
 Bundler.require(:defaut, :test)
 
+require 'sinatra/activerecord'
 require './lib/sinatra-active-model-serializers/'
 Dir['./spec/app/models/**/*.rb'].flatten.sort.each { |file| require file}
 
@@ -15,24 +16,25 @@ module App
       ActiveRecord::Base.logger = nil
     end
 
-    set :database, {
-      adapter: 'sqlite3',
-      database: 'db/sinatra_active_model_serializers.sqlite3'
-    }
+    before do
+      @test ||= Test.new(foo: 'foo')
+    end
 
     get '/with-root/' do
-      json Test.create(foo: 'bar'), { root: true }
+      json @test, root: true
     end
 
     get '/without-root/' do
-      json Test.create(foo: 'bar'), { root: false }
+      json @test, root: false
     end
 
     get '/with-specific-serializer/' do
-      json Test.create(foo: 'bar'), {
-        root: false,
-        serializer: FooSerializer
-      }
+      json @test, root: false, serializer: FooSerializer
+    end
+
+    get '/with-each-serializer/' do
+      tests = [@test, @test]
+      json tests, root: 'units', each_serializer: UnitarySerializer
     end
   end
 end
