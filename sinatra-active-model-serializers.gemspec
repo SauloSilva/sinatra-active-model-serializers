@@ -13,33 +13,43 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
 
   # generated from git shortlog -sn
-  s.authors = ['saulosantiago']
+  s.authors = ['Saulo Santiago', 'Adriano Tadao']
 
   # generated from git shortlog -sne
-  s.email = ['saulodasilvasantiago@gmail.com']
+  s.email = ['saulodasilvasantiago@gmail.com', 'drianotadao@gmail.com']
 
   # generated from git ls-files
   s.files = [
+    '.coveralls.yml',
     '.gitignore',
+    '.hound.yml',
+    '.rubocop.yml',
+    'CHANGELOG.md',
     'Gemfile',
+    'Gemfile.lock',
     'LICENSE',
     'README.md',
     'Rakefile',
-    'db/migrate/00_create_tests.rb',
-    'db/schema.rb',
     'lib/sinatra-active-model-serializers.rb',
     'lib/sinatra-active-model-serializers/json.rb',
     'lib/sinatra-active-model-serializers/version.rb',
     'sinatra-active-model-serializers.gemspec',
     'spec/app/application.rb',
     'spec/app/models/test.rb',
+    'spec/app/serializers/foo_serializer.rb',
     'spec/app/serializers/test_serializer.rb',
+    'spec/app/serializers/unitary_serializer.rb',
     'spec/json_spec.rb',
+    'spec/schemas/test_with_each_serializer.json',
     'spec/schemas/test_with_root.json',
+    'spec/schemas/test_with_specific_serializer.json',
     'spec/schemas/test_without_root.json',
     'spec/spec_helper.rb',
     'spec/support/request_support.rb'
   ]
 
+  s.add_runtime_dependency 'sinatra', '1.4.6'
+  s.add_runtime_dependency 'sinatra-contrib', '1.4.6'
+  s.add_runtime_dependency 'sinatra-activerecord', '2.0.4'
   s.add_runtime_dependency 'active_model_serializers', '0.9.3'
 end

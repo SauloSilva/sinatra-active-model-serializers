@@ -1,5 +1,7 @@
 [ ![Codeship Status for SauloSilva/sinatra-active-model-serializers](https://codeship.com/projects/0be149a0-8d56-0132-3f2c-5691319bff63/status?branch=master)](https://codeship.com/projects/60665)
 
+[![Coverage Status](https://coveralls.io/repos/SauloSilva/sinatra-active-model-serializers/badge.svg?branch=adding_each_serializer&service=github)](https://coveralls.io/github/SauloSilva/sinatra-active-model-serializers?branch=adding_each_serializer)
+
 # Sinatra::ActiveModelSerializers
 
 [![Gem Version](https://badge.fury.io/rb/sinatra-active-model-serializers.png)](http://badge.fury.io/rb/sinatra-active-model-serializers)
@@ -17,14 +19,14 @@ Ruby 1.9.2 or greater, Sinatra 1.4.5 or greater and Sinatra Contrib 1.4.2 or gre
 
 or with bundler
 
-```
+```ruby
 # Gemfile
-source :rubygems
+source 'http://rubygems.org'
 
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'sinatra-active-record'
-gem 'sinatra-active-model-serializers'
+gem 'sinatra', '1.4.6'
+gem 'sinatra-contrib', '1.4.6'
+gem 'sinatra-active-record', '2.0.4'
+gem 'sinatra-active-model-serializers', '0.2.0'
 ```
 
 ## Configure
@@ -38,6 +40,8 @@ require 'bundler'
 Bundler.require :default
 
 class App < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
+
   get '/' do
     json Test.first
   end
@@ -50,7 +54,7 @@ end
 
 This attribute is an object, all inserted configuration this object it will be passed on to Active Model Serializers, eg.
 
-```
+```ruby
 set :active_model_serializers, { root: false }
 ```
 
@@ -58,13 +62,13 @@ set :active_model_serializers, { root: false }
 
 By default this attribute is set up to look for the serializers from your project in "* app / serializers *". Whether you have a different environment you can set up by inserting the path of the string, eg.
 
-```
+```ruby
 set :serializers_path, './whatever_path/serializers'
 ```
 
 or not to automatically requires
 
-```
+```ruby
 set :serializers_path, false
 ```
 
@@ -75,7 +79,7 @@ This the second parameter is an object. This object may contain new configuratio
 
 #### root
 
-```
+```ruby
 get '/' do
   json Resource.first, { root: false }
 end
@@ -83,13 +87,13 @@ end
 
 #### scope
 
-```
+```ruby
 get '/' do
   json Resource.first, { scope: self }
 end
 ```
 
-#### serializer
+## Specify a serializer
 
 If you wish to use an another serializer than the default, you can explicitly pass it through the renderer
 
@@ -97,6 +101,15 @@ If you wish to use an another serializer than the default, you can explicitly pa
 
 ```ruby
 json Resource.first, { serializer: ResourcePreviewSerializer }
+```
+
+2. For an array resource:
+
+Use the default `ArraySerializer`, which will use `each_serializer` to
+serialize each element.
+
+```ruby
+json @resources, { each_serializer: ResourcePreviewSerializer }
 ```
 
 ## License
