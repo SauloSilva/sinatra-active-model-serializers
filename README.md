@@ -2,6 +2,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/SauloSilva/sinatra-active-model-serializers/badge.svg?branch=adding_each_serializer&service=github)](https://coveralls.io/github/SauloSilva/sinatra-active-model-serializers?branch=adding_each_serializer)
 
+[![Code Climate](https://codeclimate.com/github/SauloSilva/sinatra-active-model-serializers/badges/gpa.svg)](https://codeclimate.com/github/SauloSilva/sinatra-active-model-serializers)
+
 # Sinatra::ActiveModelSerializers
 
 [![Gem Version](https://badge.fury.io/rb/sinatra-active-model-serializers.png)](http://badge.fury.io/rb/sinatra-active-model-serializers)
