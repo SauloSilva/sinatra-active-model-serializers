@@ -17,7 +17,7 @@ Ruby 1.9.2 or greater, Sinatra 1.4.5 or greater and Sinatra Contrib 1.4.2 or gre
 
 ## Installation
 
-`gem install sinatra-active-model-serializers`
+`gem 'install sinatra-active-model-serializers'`
 
 or with bundler
 
