@@ -27,23 +27,21 @@ source 'http://rubygems.org'
 
 gem 'sinatra', '1.4.6'
 gem 'sinatra-contrib', '1.4.6'
-gem 'sinatra-active-record', '2.0.4'
 gem 'sinatra-active-model-serializers', '0.2.0'
 ```
 
 ## Configure
 
-First you have to being with the active record configured in your system environment correctly. If the environment is not set up, see their [documentation](https://github.com/janko-m/sinatra-activerecord#sinatra-activerecord-extension).
-After is simply do require from our library on your `application.rb`, eg.
+It's very easy. Look at the example:
 
 ```ruby
 require 'rubygems'
 require 'bundler'
 Bundler.require :default
 
-class App < Sinatra::Base
-  register Sinatra::ActiveRecordExtension
+Dir['./app/models/**/*.rb'].each { |file| require file }
 
+class App < Sinatra::Base
   get '/' do
     json Test.first
   end
@@ -62,13 +60,13 @@ set :active_model_serializers, { root: false }
 
 #### serializers_path
 
-By default this attribute is set up to look for the serializers from your project in "* app / serializers *". Whether you have a different environment you can set up by inserting the path of the string, eg.
+By default, path is `app/serializers`. If you need a different path you can set your path, eg.
 
 ```ruby
 set :serializers_path, './whatever_path/serializers'
 ```
 
-or not to automatically requires
+or you can disable auto require
 
 ```ruby
 set :serializers_path, false
