@@ -1,5 +1,11 @@
 ## [In git](https://github.com/SauloSilva/sinatra-active-model-serializers/compare/v0.0.2...HEAD)
 
+## [v0.3.0](https://github.com/SauloSilva/sinatra-active-model-serializers/tree/v0.3.0)
+
+### Minor:
+
+* [Remove ActiveRecord dependency and add ActiveModel with dependency](https://github.com/SauloSilva/sinatra-active-model-serializers/pull/23) (saulosantiago)
+
 ## [v0.2.2](https://github.com/SauloSilva/sinatra-active-model-serializers/tree/v0.2.2)
 
 ### Patch:

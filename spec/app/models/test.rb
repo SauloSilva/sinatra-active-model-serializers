@@ -1,5 +1,6 @@
 class Test
-  include ActiveModel::Serialization
+  include ActiveModel::Serializers::JSON
+
   attr_accessor :foo
 
   def initialize(options)
