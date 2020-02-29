@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 gemspec
 
 group :development do
-  gem 'rake', '10.4.2'
+  gem 'rake', '13.0.1'
   gem 'rubygems-tasks', '0.2.4'
 end
 
