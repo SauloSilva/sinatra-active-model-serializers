@@ -21,7 +21,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     backports (3.6.8)
     builder (3.2.2)
     coveralls (0.8.2)
@@ -44,6 +45,7 @@ GEM
     minitest (5.8.4)
     multi_json (1.11.2)
     netrc (0.11.0)
+    public_suffix (4.0.6)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
